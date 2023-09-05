@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Nav = ({ search, setSearch }) => {
-  const [searchResult, setSearchResult] = useState([])
 
   return (
     <nav className="Nav">

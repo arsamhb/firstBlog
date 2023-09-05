@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import api from "../api/post"
 import { format } from 'date-fns'
+import { useNavigate } from 'react-router-dom';
 
 const NewPost = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const navigate = useNavigate();
 
   const findId = async () => {
     try {
@@ -22,6 +24,7 @@ const NewPost = () => {
       }
     }
   }
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
     let newPost = {}
@@ -31,9 +34,9 @@ const NewPost = () => {
     newPost.body = body;
     newPost.title = title;
     const response = await api.post('/posts', newPost);
-    console.log(response.data);
     setBody('');
     setTitle('');
+    navigate('/')
   }
 
   return (

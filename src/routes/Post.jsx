@@ -34,6 +34,10 @@ const Post = () => {
         navigate("/")
     }
 
+    const goToEditPostPage = () => {
+        navigate(`/editPost/${id}`)
+    }
+
     return (
         <>
             <h2>{post.title}</h2>
@@ -41,6 +45,9 @@ const Post = () => {
             <h4>{post.datetime}</h4>
             <button onClick={handleDelete}>
                 DELETE
+            </button>
+            <button onClick={goToEditPostPage}>
+                EDIT
             </button>
         </>
     )
